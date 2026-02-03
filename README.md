@@ -1,2 +1,114 @@
-# Mahek-ohho-
-Ilu ilu 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff4d6d, #ff8fab);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.18);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+      width: 400px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .emojis {
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .yes {
+      background-color: #ffe5ec;
+      color: #b00020;
+      margin-right: 15px;
+    }
+
+    .yes:hover {
+      transform: scale(1.1);
+    }
+
+    .no {
+      background-color: #590d22;
+      color: white;
+      position: absolute;
+    }
+
+    .message {
+      margin-top: 25px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>💖 Will you be my Valentine? 💖</h1>
+    <div class="emojis">🌹💘💕💞💓</div>
+
+    <button class="yes" onclick="yesClick()">Yes 💕</button>
+    <button class="no" id="noBtn">No 💔</button>
+
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    // Place NO button randomly when hovered
+    noBtn.addEventListener("mouseover", () => {
+      const card = document.querySelector(".card");
+      const cardRect = card.getBoundingClientRect();
+
+      const x = Math.random() * (cardRect.width - 100);
+      const y = Math.random() * (cardRect.height - 50);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    function yesClick() {
+      document.getElementById("message").innerHTML =
+        "🥰💘 Congratulations!<br><br>" +
+        "You’re lucky to have such a nice girlfriend 💖<br>" +
+        "Sending you soooo much love 💕<br>" +
+        "Love you & can’t wait to meet you soon 😘🌹";
+    }
+
+    noBtn.addEventListener("click", () => {
+      document.getElementById("message").innerHTML =
+        "😢💔😠<br>That was rude… the heart is broken!";
+    });
+  </script>
+
+</body>
+</html>
